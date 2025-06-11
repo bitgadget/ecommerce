@@ -1,0 +1,41 @@
+/* src/styles/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #181a20;
+  --foreground: #fff;
+  --card: #23262f;
+  --primary: #f7931a;
+  --primary-foreground: #181a20;
+  --muted: #353945;
+  --border: #23262f;
+  --radius: 0.5rem;
+}
+
+
+body {
+  @apply bg-[var(--background)] text-[var(--foreground)];
+  font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+}
+
+h1, h2, h3, .font-headline {
+  font-family: var(--font-space-grotesk), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes neon-glow-blink {
+  0%, 100% { text-shadow: 0 0 8px #f7931a, 0 0 16px #f7931a; }
+  50% { text-shadow: 0 0 16px #f7931a, 0 0 32px #f7931a; }
+}
+.animate-neon-glow-blink {
+  animation: neon-glow-blink 1.5s infinite alternate;
+}
