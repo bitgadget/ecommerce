@@ -28,10 +28,51 @@ export default function ProductSlider({
 
   return (
     <div className="relative w-full">
+      {/* Mobile arrows with background and clickable */}
+      <button
+        aria-label="Previous"
+        onClick={() => scroll("left")}
+        className="lg:hidden flex items-center justify-center absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-[var(--card)] text-[var(--primary)] rounded-full w-10 h-10 shadow-md active:scale-90 transition p-0"
+        style={{ boxShadow: "0 2px 8px 0 rgba(0,0,0,0.10)" }}
+      >
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          className="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+      </button>
+      <button
+        aria-label="Next"
+        onClick={() => scroll("right")}
+        className="lg:hidden flex items-center justify-center absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-[var(--card)] text-[var(--primary)] rounded-full w-10 h-10 shadow-md active:scale-90 transition p-0"
+        style={{ boxShadow: "0 2px 8px 0 rgba(0,0,0,0.10)" }}
+      >
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          className="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <polyline points="9 18 15 12 9 6" />
+        </svg>
+      </button>
       <div className="flex items-center justify-center">
-        {/* Freccia sinistra */}
+        {/* Desktop arrows */}
         <button
-          aria-label="Precedente"
+          aria-label="Previous"
           onClick={() => scroll("left")}
           className="hidden lg:flex z-10 bg-[var(--card)] text-[var(--primary)] rounded-full w-10 h-10 items-center justify-center hover:bg-[var(--primary)] hover:text-[var(--card)] transition"
         >
@@ -66,9 +107,9 @@ export default function ProductSlider({
             </div>
           ))}
         </div>
-        {/* Freccia destra */}
+        {/* Desktop arrows */}
         <button
-          aria-label="Successivo"
+          aria-label="Next"
           onClick={() => scroll("right")}
           className="hidden lg:flex z-10 bg-[var(--card)] text-[var(--primary)] rounded-full w-10 h-10 items-center justify-center hover:bg-[var(--primary)] hover:text-[var(--card)] transition"
         >
@@ -78,6 +119,28 @@ export default function ProductSlider({
     </div>
   );
 }
+
+// Aggiungi queste animazioni in tailwind.config.js se vuoi l'effetto bounce-x:
+/*
+theme: {
+  extend: {
+    keyframes: {
+      'bounce-x': {
+        '0%, 100%': { transform: 'translateX(0)' },
+        '50%': { transform: 'translateX(-8px)' },
+      },
+      'bounce-x-reverse': {
+        '0%, 100%': { transform: 'translateX(0)' },
+        '50%': { transform: 'translateX(8px)' },
+      },
+    },
+    animation: {
+      'bounce-x': 'bounce-x 1s infinite',
+      'bounce-x-reverse': 'bounce-x-reverse 1s infinite',
+    },
+  },
+}
+*/
 
 // Usage example (this part is not in the component file, just an illustration)
 // <ProductSlider
