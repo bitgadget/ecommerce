@@ -7,11 +7,9 @@ import ProductCard from "@/components/ProductCard";
 export default function ProductSlider({
   products,
   onProductClick,
-  onAddToCart,
 }: {
   products: Product[];
   onProductClick: (product: Product) => void;
-  onAddToCart: (product: Product) => void;
 }) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const btcEur = useBtcEur();
@@ -64,7 +62,7 @@ export default function ProductSlider({
                 product={product}
                 btcEur={btcEur}
                 onView={onProductClick}
-                
+              />
             </div>
           ))}
         </div>
