@@ -32,42 +32,18 @@ export default function ProductSlider({
       <button
         aria-label="Previous"
         onClick={() => scroll("left")}
-        className="lg:hidden flex items-center justify-center absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-[var(--card)] text-[var(--primary)] rounded-full w-10 h-10 shadow-md active:scale-90 transition p-0"
+        className="lg:hidden flex items-center justify-center absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-[var(--card)] text-[var(--primary)] border-2 border-orange-500 rounded-full w-10 h-10 shadow-md active:scale-90 transition p-0"
         style={{ boxShadow: "0 2px 8px 0 rgba(0,0,0,0.10)" }}
       >
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          className="w-6 h-6"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <polyline points="15 18 9 12 15 6" />
-        </svg>
+        <span className="text-2xl">&#8592;</span>
       </button>
       <button
         aria-label="Next"
         onClick={() => scroll("right")}
-        className="lg:hidden flex items-center justify-center absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-[var(--card)] text-[var(--primary)] rounded-full w-10 h-10 shadow-md active:scale-90 transition p-0"
+        className="lg:hidden flex items-center justify-center absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-[var(--card)] text-[var(--primary)] border-2 border-orange-500 rounded-full w-10 h-10 shadow-md active:scale-90 transition p-0"
         style={{ boxShadow: "0 2px 8px 0 rgba(0,0,0,0.10)" }}
       >
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          className="w-6 h-6"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <polyline points="9 18 15 12 9 6" />
-        </svg>
+        <span className="text-2xl">&#8594;</span>
       </button>
       <div className="flex items-center justify-center">
         {/* Desktop arrows */}
