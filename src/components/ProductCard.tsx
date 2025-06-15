@@ -1,11 +1,9 @@
 import Image from "next/image";
-import { Bitcoin, Eye, Euro, ShoppingCart } from "lucide-react";
+import { Bitcoin, Eye, Euro } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Product } from "@/data/products";
 import React from "react";
-import { useCart } from "@/context/CartContext";
-import toast from "react-hot-toast";
 
 interface ProductCardProps {
   product: Product;
@@ -14,7 +12,6 @@ interface ProductCardProps {
 }
 
 function ProductCardComponent({ product, btcEur, onView }: ProductCardProps) {
-  const { addToCart } = useCart();
   const priceInBtc = btcEur && product.priceEUR > 0 ? (product.priceEUR / btcEur).toFixed(5) : "--.-----";
   const imageUrl = product.images?.[0] || "https://placehold.co/600x600.png?text=No+Image";
 
@@ -45,9 +42,6 @@ function ProductCardComponent({ product, btcEur, onView }: ProductCardProps) {
             {priceInBtc} BTC
           </div>
         )}
-        <p className="text-xs text-muted-foreground mt-1">
-          {product.stock > 0 ? `${product.stock} disponibili` : "Non disponibile"}
-        </p>
       </CardContent>
       <CardFooter className="p-4 pt-0 grid grid-cols-2 gap-2">
         <Button variant="outline" onClick={() => onView(product)} className="w-full">

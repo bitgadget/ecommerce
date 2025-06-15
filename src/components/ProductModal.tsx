@@ -1,15 +1,12 @@
 import { Product } from "@/data/products";
-import { Bitcoin, ShoppingCart, Euro } from "lucide-react";
-import React, { useState, useEffect } from "react";
+import { Bitcoin, Euro } from "lucide-react";
+import React from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import Image from "next/image";
-import { useCart } from "@/context/CartContext";
-import toast from "react-hot-toast";
-
 
 interface ProductModalProps {
   product: Product | null;
@@ -22,11 +19,7 @@ export default function ProductModal({
   onClose,
   btcEur,
 }: ProductModalProps) {
-  const [quantity, setQuantity] = useState(1);
-  const { addToCart } = useCart();
-
-  // Blocca lo scroll del body quando il modal è aperto
-  useEffect(() => {
+  React.useEffect(() => {
     if (product) {
       document.body.style.overflow = "hidden";
     } else {
@@ -40,16 +33,6 @@ export default function ProductModal({
   if (!product) return null;
 
   const priceInBtc = btcEur ? (product.priceEUR / btcEur).toFixed(5) : "--.-----";
-  const totalEur = (product.priceEUR * quantity).toFixed(2);
-  const totalBtc = btcEur ? ((product.priceEUR * quantity) / btcEur).toFixed(5) : "--.-----";
-
-  const handleAdd = () => {
-    for (let i = 0; i < quantity; i++) {
-      addToCart(product);
-    }
-    toast.success("Prodotto aggiunto al carrello!");
-    onClose();
-  };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 px-0 py-0">
@@ -114,27 +97,7 @@ export default function ProductModal({
                 <Bitcoin className="h-4 w-4 md:h-5 md:w-5 mr-2 text-[var(--primary)]" />
                 {priceInBtc} BTC
               </span>
-              <span className={`text-sm mt-2 ${product.stock > 0 ? "text-[var(--muted)]" : "text-red-500 font-semibold"}`}>
-                {product.stock > 0 ? `${product.stock} disponibili` : "Non disponibile"}
-              </span>
             </div>
-            {/* Quantità */}
-            {product.stock > 0 && (
-              <div className="flex items-center justify-center gap-4 mb-6">
-                <button
-                  className="bg-[var(--card)] border border-[var(--primary)] text-[var(--primary)] rounded w-9 h-9 text-xl font-bold hover:bg-[var(--primary)] hover:text-[var(--card)] transition"
-                  onClick={() => setQuantity(q => Math.max(1, q - 1))}
-                  disabled={quantity <= 1}
-                >-</button>
-                <span className="text-lg font-medium w-10 text-center text-[var(--foreground)]">{quantity}</span>
-                <button
-                  className="bg-[var(--card)] border border-[var(--primary)] text-[var(--primary)] rounded w-9 h-9 text-xl font-bold hover:bg-[var(--primary)] hover:text-[var(--card)] transition"
-                  onClick={() => setQuantity(q => Math.min(product.stock, q + 1))}
-                  disabled={quantity >= product.stock}
-                >+</button>
-              </div>
-            )}
-            
             {/* Contatto venditore */}
             <button
               onClick={() =>
