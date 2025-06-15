@@ -151,7 +151,7 @@ export default function Home() {
         {/* Contact Section */}
         <section
           id="contact"
-          className="flex flex-col items-center justify-center pt-2 pb-0 scroll-mt-[40px]"
+          className="flex flex-col items-center justify-center pt-2 pb-0 scroll-mt-[100px]"
         >
           <h3 className="text-2xl font-bold text-white mb-3 text-center">
             Contact Us
