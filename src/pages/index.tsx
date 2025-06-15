@@ -6,32 +6,14 @@ import { Product } from "@/data/products";
 import BitcoinPrice from "@/components/BitcoinPrice";
 import ProductModal from "@/components/ProductModal";
 import { useBtcEur } from "@/hooks/useBtcEur";
+import { products as localProducts } from "@/data/products";
 
 export default function Home() {
   const [modalProduct, setModalProduct] = useState<Product | null>(null);
-  const [products, setProducts] = useState<Product[]>([]);
   const btcEur = useBtcEur();
 
-  useEffect(() => {
-    fetch("/api/products")
-      .then(res => res.json())
-      .then(data => {
-        const mapped = Array.isArray(data)
-          ? data.map((p: any) => ({
-              ...p,
-              priceEUR: Number(p.price_eur),
-              images: p.images,
-              category: p.category,
-              description: p.description,
-              name: p.name,
-              id: p.id,
-            }))
-          : [];
-        setProducts(mapped);
-      });
-  }, []);
-
-  const safeProducts = Array.isArray(products) ? products : [];
+  // Usa direttamente i prodotti locali
+  const safeProducts = localProducts;
 
   return (
     <>
