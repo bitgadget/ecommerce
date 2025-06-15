@@ -5,7 +5,7 @@ export interface Product {
   name: string;
   description: string;
   priceEUR: number;
-  images: string[]; // Cambiato qui
+  images: string[];
   category: Category;
 }
 
@@ -15,15 +15,19 @@ export const products: Product[] = [
     id: "g1",
     name: "BitSIGN RGB LED",
     description: `
-Bitcoin-themed RGB LED sign.
+Illuminate your crypto setup with the ultimate Bitcoin LED sign!
 
-**Features:**
-- Customizable RGB lighting
-- Modern design
-- Perfect for your setup or store
+The BitSIGN RGB LED is a premium led sign designed for Bitcoiners, crypto traders, and blockchain enthusiasts. Whether you’re decorating your home office, gaming room, or crypto cave, this high-quality Bitcoin sign adds a unique touch.
+
+✔ Vibrant RGB LED colors  
+✔ Remote control to change the colors of the led  
+✔ Perfect for Bitcoin lovers & crypto influencers  
+
+**Limited stock available – order now!**  
+BITGADGET
     `,
     priceEUR: 120.00,
-    images: ["/images/bitsign.webp", "/images/bitsign2.webp"],
+    images: ["/images/bitsign.webp"],
     category: "gadget"
   },
   {
@@ -46,14 +50,16 @@ Turn your desk into a live crypto dashboard with **BIT TRACKER**, the Wi-Fi disp
     id: "g3",
     name: "BITRocket – Bitcoin Rocket",
     description: `
-Bitcoin rocket-shaped decoration.
+Bitcoin is going to the moon, and so is your desk setup!
 
-**Details:**
-- Material: PLA
-- Available colors: Orange, Red
-- Height: 15cm
+The BITRocket is a sleek, Bitcoin-themed rocket toy designed for traders and crypto lovers who believe in the future of BTC. Whether you keep it on your desk or gift it to a fellow HODLer, it’s a fun and symbolic addition to any Bitcoin setup.
 
-Perfect for your desk or as an original gift!
+**Why choose the BITRocket?**
+✔ Premium quality design – A true statement piece  
+✔ Perfect for Bitcoin traders, miners, and HODLers  
+✔ Great conversation starter for your workspace  
+
+BITGADGET
     `,
     priceEUR: 39.99,
     images: ["/images/bitrocketred.webp", "/images/bitrocketorange.webp"],
@@ -63,10 +69,16 @@ Perfect for your desk or as an original gift!
     id: "g4",
     name: "TO THE MOON ₿ SIGN",
     description: `
-"To The Moon" decorative sign with Bitcoin symbol.
+Bitcoin is blasting off, and so is your desk setup!
 
-- Ideal for modern spaces
-- Iconic symbol for every Bitcoiner
+TO THE MOON SIGN is a bold, high-quality piece made from durable PLA. Designed for crypto enthusiasts, traders, miners, and HODLers, this iconic desk decor piece proudly declares your commitment to the “to the moon” spirit.
+
+**Why choose the Bitcoin 3D Rocket Copy – TO THE MOON SIGN?**
+✔ Premium PLA construction  
+✔ Ideal for Bitcoin traders, miners, and HODLers  
+✔ A striking desk decor piece that symbolizes the unstoppable rise of BTC  
+
+BITGADGET
     `,
     priceEUR: 29.99,
     images: ["/images/tothemoon.webp"],
@@ -76,11 +88,18 @@ Perfect for your desk or as an original gift!
     id: "g5",
     name: "EmergencyPILL ₿ – Bitcoin Orange Pill Art",
     description: `
-**Orange Pill** Bitcoin-themed artwork.
+Bitcoin is the escape. Take the Orange Pill!
 
-- High-quality print
-- Vibrant colors
-- A must-have for every collector
+The EmergencyPILL ₿ is a limited-edition Bitcoin wall frame featuring mini-pill visuals and a bold statement about inflation:
+
+> "In case of uncontrolled inflation, break the glass and take the orange pill."
+
+**Why choose the EmergencyPILL ₿?**
+✔ Bitcoin-inspired message on monetary policy & inflation  
+✔ Premium frame with a sleek, clean finish  
+✔ Unique design – A true Bitcoin collector’s piece  
+
+BITGADGET
     `,
     priceEUR: 24.99,
     images: ["/images/emergency1.webp", "/images/emergency2.webp"],
@@ -92,11 +111,15 @@ Perfect for your desk or as an original gift!
     id: "w1",
     name: "BitTRUST Bitcoin HODL T-Shirt",
     description: `
-HODL T-shirt for true Bitcoiners.
+HODL in style with the BitTRUST Bitcoin T-Shirt!
 
-- 100% cotton
-- Durable print
-- Comfortable fit
+If you believe in Bitcoin’s future, this premium-quality t-shirt is for you. Featuring the iconic “BitTRUST” design, it’s perfect for BTC enthusiasts, crypto traders, and hodlers.
+
+✔ High-quality cotton blend for comfort  
+✔ Bold Bitcoin design for true crypto believers  
+✔ Available in multiple sizes – unisex fit  
+
+BITGADGET
     `,
     priceEUR: 30.00,
     images: ["/images/dont1.webp", "/images/retrot.webp"],
@@ -106,10 +129,14 @@ HODL T-shirt for true Bitcoiners.
     id: "w2",
     name: "₿ BLACK Bitcoin T-Shirt",
     description: `
-Black T-shirt with Bitcoin symbol.
+₿ BITCOIN T-Shirt. The minimalistic Bitcoin wear, now on a hoodie! Ideal for crypto traders, Bitcoin maximalists, and blockchain enthusiasts.
 
-- Minimal look
-- Perfect for any occasion
+**Why buy the ₿ BLACK Bitcoin T-Shirt?**
+✔ Premium cotton blend for maximum comfort  
+✔ Minimalist design with a strong Bitcoin message  
+✔ Perfect for meetups, trading sessions & everyday wear  
+
+BITGADGET
     `,
     priceEUR: 30.00,
     images: ["/images/black0.webp", "/images/black2.webp"],
@@ -119,10 +146,16 @@ Black T-shirt with Bitcoin symbol.
     id: "w3",
     name: "NOTYOURS T-Shirt – Bitcoin Self-Custody",
     description: `
-T-shirt dedicated to Bitcoin self-custody.
+“Not Your Keys, Not Your Coins” – Wear the Crypto Truth!
 
-- Clear message: Not your keys, not your coins!
-- Ideal for those who believe in true ownership
+The NOTYOURS Bitcoin T-Shirt is for those who understand the importance of self-custody and financial freedom. Designed for Bitcoiners who value decentralization and security.
+
+✔ Bold “Not Yours” Bitcoin design  
+✔ Premium cotton blend – soft & durable  
+✔ Essential crypto merch for Bitcoin maxis  
+✔ Limited edition  
+
+BITGADGET
     `,
     priceEUR: 30.00,
     images: ["/images/notyour1.webp", "/images/retrot.webp"],
@@ -134,11 +167,17 @@ T-shirt dedicated to Bitcoin self-custody.
     id: "a1",
     name: "Genesis₿lock – Bitcoin Genesis Block Art",
     description: `
-Artwork dedicated to the **Genesis Block** of Bitcoin.
+The Genesis Block is where it all started.
 
-- Printed on high-quality material
-- Size: 30x40cm
-- Limited edition
+The GenesisAnon ₿lock artwork pays tribute to the very first block ever mined on the Bitcoin network. Featuring the original block hash and timestamp, this piece is a must-have for Bitcoin purists and decentralization advocates.
+
+**Why buy the GenesisAnon ₿lock?**
+✔ Accurate representation of the Bitcoin Genesis Block  
+✔ Minimalist, modern design for any space  
+✔ Perfect for Bitcoin educators & blockchain enthusiasts  
+✔ A conversation starter for your crypto-friendly workspace  
+
+BITGADGET
     `,
     priceEUR: 35.00,
     images: ["/images/genesis.webp"],
@@ -148,10 +187,15 @@ Artwork dedicated to the **Genesis Block** of Bitcoin.
     id: "a2",
     name: "Bitcoin Whitepaper Wall Art",
     description: `
-Wall decoration with the **Bitcoin whitepaper**.
+The Bitcoin Whitepaper changed finance forever. Now, you can own a high-quality print of the original document that started the decentralized revolution on 1cm PVC panel.
 
-- Elegant design
-- Perfect for office or home
+**Why choose this Bitcoin Whitepaper print?**
+✔ Official Bitcoin Whitepaper text with a clean, readable layout  
+✔ High-quality print material – long-lasting durability  
+✔ Great for offices, trading rooms, and crypto meetups  
+✔ The ultimate gift for any Bitcoin enthusiast  
+
+BITGADGET
     `,
     priceEUR: 35.00,
     images: ["/images/whitepaper.webp"],
@@ -161,13 +205,17 @@ Wall decoration with the **Bitcoin whitepaper**.
     id: "a3",
     name: "₿itBailout Panel Bitcoin Art",
     description: `
-*BitBailout* Bitcoin art panel.
+Show your Bitcoin mindset with the ₿itBailout Panel!
 
-- Printed on high-quality material
-- Size: 30x40cm
-- Limited edition
+Inspired by the flaws of traditional finance and economic bailouts, this high-quality art panel makes a powerful statement in your home or office.
 
-Add a Bitcoin touch to your wall!
+**Why choose the ₿itBailout Panel?**
+✔ Premium print quality on durable material  
+✔ Minimalist yet thought-provoking design  
+✔ Perfect for Bitcoiners & decentralization advocates  
+✔ Available in multiple sizes  
+
+BITGADGET
     `,
     priceEUR: 35.00,
     images: ["/images/times.webp"],

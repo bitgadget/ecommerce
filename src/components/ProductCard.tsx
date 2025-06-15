@@ -31,7 +31,7 @@ function ProductCardComponent({ product, btcEur, onView }: ProductCardProps) {
       </CardHeader>
       <CardContent className="p-4 flex-grow flex flex-col">
         <CardTitle className="text-lg font-headline mb-1 line-clamp-2">{product.name}</CardTitle>
-        <CardDescription className="text-sm text-[var(--muted)] mb-2 line-clamp-2">{product.description}</CardDescription>
+        <CardDescription className="text-sm text-white mb-2 line-clamp-2">{product.description}</CardDescription>
         <div className="flex items-center text-[var(--primary)] font-semibold text-lg">
           <Euro className="h-5 w-5 mr-1" />
           {typeof product.priceEUR === "number" ? product.priceEUR.toFixed(2) : "--.--"} EUR
