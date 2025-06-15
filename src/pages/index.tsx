@@ -1,19 +1,44 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ProductSlider from "@/components/ProductSlider";
-import { products, Product } from "@/data/products";
+import { Product } from "@/data/products";
 import BitcoinPrice from "@/components/BitcoinPrice";
 import ProductModal from "@/components/ProductModal";
 import { useBtcEur } from "@/hooks/useBtcEur";
+import { useCart } from "@/context/CartContext";
 
 export default function Home() {
   const [modalProduct, setModalProduct] = useState<Product | null>(null);
+  const [products, setProducts] = useState<Product[]>([]);
   const btcEur = useBtcEur();
+  const { addToCart } = useCart();
+
+  useEffect(() => {
+    fetch("/api/products")
+      .then(res => res.json())
+      .then(data => {
+        // Mappa i campi dal db per ogni prodotto
+        const mapped = Array.isArray(data)
+          ? data.map((p: any) => ({
+              ...p,
+              priceEUR: Number(p.price_eur),
+              images: p.images,
+              category: p.category,
+              description: p.description,
+              name: p.name,
+              id: p.id,
+            }))
+          : [];
+        setProducts(mapped);
+      });
+  }, []);
 
   const handleAddToCart = (product: Product) => {
-    alert(`Aggiunto ${product.name} al carrello!`);
+    addToCart(product);
   };
+
+  const safeProducts = Array.isArray(products) ? products : [];
 
   return (
     <>
@@ -55,7 +80,7 @@ export default function Home() {
             GADGET
           </h2>
           <ProductSlider
-            products={products.filter(p => p.category === "gadget").slice(0, 6)}
+            products={safeProducts.filter(p => p.category === "gadget").slice(0, 6)}
             onProductClick={setModalProduct}
             onAddToCart={handleAddToCart}
           />
@@ -67,7 +92,7 @@ export default function Home() {
             WEAR
           </h2>
           <ProductSlider
-            products={products.filter(p => p.category === "wear").slice(0, 6)}
+            products={safeProducts.filter(p => p.category === "wear").slice(0, 6)}
             onProductClick={setModalProduct}
             onAddToCart={handleAddToCart}
           />
@@ -79,10 +104,46 @@ export default function Home() {
             ART
           </h2>
           <ProductSlider
-            products={products.filter(p => p.category === "art").slice(0, 6)}
+            products={safeProducts.filter(p => p.category === "art").slice(0, 6)}
             onProductClick={setModalProduct}
             onAddToCart={handleAddToCart}
           />
+        </section>
+
+        {/* Lista di tutti i prodotti */}
+        <section className="mb-16">
+          <h2 className="text-3xl font-bold mb-4 text-white text-center">
+            TUTTI I PRODOTTI
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {safeProducts.map((product: any) => (
+              <div
+                key={product.id}
+                className="bg-gray-800 p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow"
+              >
+                <h3 className="text-xl font-semibold text-white">
+                  {product.name}
+                </h3>
+                <p className="text-gray-400">
+                  Prezzo: {product.priceEUR} €
+                </p>
+                <div className="flex justify-between mt-4">
+                  <button
+                    onClick={() => handleAddToCart(product)}
+                    className="bg-bitcoin text-white px-4 py-2 rounded-md font-semibold shadow-md hover:bg-bitcoin-dark transition"
+                  >
+                    Aggiungi al carrello
+                  </button>
+                  <button
+                    onClick={() => setModalProduct(product)}
+                    className="text-bitcoin font-semibold"
+                  >
+                    Visualizza
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
         </section>
       </main>
       <Footer />

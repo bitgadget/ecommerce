@@ -1,22 +1,22 @@
-"use client";
-
 import Image from "next/image";
-import { Bitcoin, Eye, ShoppingCart, Euro } from "lucide-react";
+import { Bitcoin, Eye, Euro, ShoppingCart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Product } from "@/data/products";
 import React from "react";
+import { useCart } from "@/context/CartContext";
+import toast from "react-hot-toast";
 
 interface ProductCardProps {
   product: Product;
   btcEur: number | null;
   onView: (product: Product) => void;
-  onAdd: (product: Product) => void;
 }
 
-function ProductCardComponent({ product, btcEur, onView, onAdd }: ProductCardProps) {
+function ProductCardComponent({ product, btcEur, onView }: ProductCardProps) {
+  const { addToCart } = useCart();
   const priceInBtc = btcEur && product.priceEUR > 0 ? (product.priceEUR / btcEur).toFixed(5) : "--.-----";
-  const imageUrl = product.image || "https://placehold.co/600x600.png?text=No+Image";
+  const imageUrl = product.images?.[0] || "https://placehold.co/600x600.png?text=No+Image";
 
   return (
     <Card className="flex flex-col h-full overflow-hidden shadow-lg bg-[var(--card)] text-[var(--foreground)] rounded-[var(--radius)]">
@@ -26,8 +26,8 @@ function ProductCardComponent({ product, btcEur, onView, onAdd }: ProductCardPro
             src={imageUrl}
             alt={product.name}
             fill
-            className="object-cover transition-transform duration-300 hover:scale-105"
-            sizes="(max-width: 768px) 100vw, 33vw"
+            className="object-contain transition-transform duration-300 hover:scale-105 bg-white"
+            sizes="(max-width: 600px) 90vw, 33vw"
             priority={false}
           />
         </div>
@@ -37,7 +37,7 @@ function ProductCardComponent({ product, btcEur, onView, onAdd }: ProductCardPro
         <CardDescription className="text-sm text-[var(--muted)] mb-2 line-clamp-2">{product.description}</CardDescription>
         <div className="flex items-center text-[var(--primary)] font-semibold text-lg">
           <Euro className="h-5 w-5 mr-1" />
-          {product.priceEUR.toFixed(2)} EUR
+          {typeof product.priceEUR === "number" ? product.priceEUR.toFixed(2) : "--.--"} EUR
         </div>
         {btcEur !== null && (
           <div className="flex items-center text-muted-foreground font-medium text-sm mt-1">
@@ -54,11 +54,14 @@ function ProductCardComponent({ product, btcEur, onView, onAdd }: ProductCardPro
           <Eye className="mr-2 h-4 w-4" /> Vedi
         </Button>
         <Button
-          onClick={() => onAdd(product)}
+          onClick={() => {
+            addToCart(product);
+            toast.success("Prodotto aggiunto al carrello!");
+          }}
           disabled={product.stock === 0}
           className="w-full"
         >
-          <ShoppingCart className="mr-2 h-4 w-4" /> Aggiungi
+          <ShoppingCart className="mr-2 h-4 w-4" /> ADD TO CART
         </Button>
       </CardFooter>
     </Card>
@@ -67,3 +70,9 @@ function ProductCardComponent({ product, btcEur, onView, onAdd }: ProductCardPro
 
 const ProductCard = React.memo(ProductCardComponent);
 export default ProductCard;
+
+// Grid container for ProductCard components
+<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 px-2">
+  {/* ProductCard */}
+</div>
+

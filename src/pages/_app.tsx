@@ -2,14 +2,21 @@
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 import { Inter, Space_Grotesk } from "next/font/google";
+import "@/styles/swiper-custom.css";
+import { CartProvider } from "@/context/CartContext";
+import { Toaster } from "react-hot-toast";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-space-grotesk", weight: ["400", "700"] });
 
-export default function App({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <main className={`${inter.variable} ${spaceGrotesk.variable}`}>
-      <Component {...pageProps} />
-    </main>
+    <CartProvider>
+      <main className={`${inter.variable} ${spaceGrotesk.variable}`}>
+        <Toaster position="top-right" />
+        <Component {...pageProps} />
+      </main>
+    </CartProvider>
   );
 }
+export default MyApp;
