@@ -20,7 +20,7 @@ export const products: Product[] = [
   // Wear
   { id: "w1", name: "BitTRUST Bitcoin HODL T-Shirt", description: "T-shirt HODL per veri Bitcoiner.", priceEUR: 30.00, images: ["/images/dont1.webp", "/images/retrot.webp"], category: "wear" },
   { id: "w2", name: "₿ BLACK Bitcoin T-Shirt", description: "T-shirt nera con simbolo Bitcoin.", priceEUR: 30.00, images: ["/images/black0.webp", "/images/black2.webp"], category: "wear" },
-  { id: "w3", name: "NOTYOURS T-Shirt – Bitcoin Self-Custody", description: "T-shirt dedicata all'auto-custodia Bitcoin.", priceEUR: 30.00, images: ["/images/notyour.webp", "/images/retrot.webp"], category: "wear" },
+  { id: "w3", name: "NOTYOURS T-Shirt – Bitcoin Self-Custody", description: "T-shirt dedicata all'auto-custodia Bitcoin.", priceEUR: 30.00, images: ["/images/notyour1.webp", "/images/retrot.webp"], category: "wear" },
 
   // Art (solo i nuovi prodotti richiesti)
   { id: "a1", name: "Genesis₿lock – Bitcoin Genesis Block Art", description: "Opera d'arte dedicata al Genesis Block di Bitcoin.", priceEUR: 35.00, images: ["/images/genesis.webp"], category: "art" },
