@@ -21,7 +21,7 @@ export default function BitcoinPrice() {
   }, []);
 
   return (
-    <div className="bg-bitcoin text-white text-center py-2 font-bold">
+    <div className="bg-bitcoin text-white text-center py-2 font-bold sticky top-0 z-50">
       {price ? `BTC/USD: ${price}` : "Caricamento prezzo BTC..."}
     </div>
   );

@@ -6,19 +6,16 @@ import { Product } from "@/data/products";
 import BitcoinPrice from "@/components/BitcoinPrice";
 import ProductModal from "@/components/ProductModal";
 import { useBtcEur } from "@/hooks/useBtcEur";
-import { useCart } from "@/context/CartContext";
 
 export default function Home() {
   const [modalProduct, setModalProduct] = useState<Product | null>(null);
   const [products, setProducts] = useState<Product[]>([]);
   const btcEur = useBtcEur();
-  const { addToCart } = useCart();
 
   useEffect(() => {
     fetch("/api/products")
       .then(res => res.json())
       .then(data => {
-        // Mappa i campi dal db per ogni prodotto
         const mapped = Array.isArray(data)
           ? data.map((p: any) => ({
               ...p,
@@ -33,10 +30,6 @@ export default function Home() {
         setProducts(mapped);
       });
   }, []);
-
-  const handleAddToCart = (product: Product) => {
-    addToCart(product);
-  };
 
   const safeProducts = Array.isArray(products) ? products : [];
 
@@ -75,38 +68,35 @@ export default function Home() {
         </div>
 
         {/* Sezione Gadget */}
-        <section id="gadget" className="mb-16">
-          <h2 className="text-3xl font-bold mb-4 text-[var(--primary)] text-center uppercase font-headline">
+        <section id="gadget" className="mb-16 scroll-mt-28">
+          <h2 className="text-3xl font-bold mb-4 text-[var(--primary)] animate-neon-glow-blink text-center uppercase font-headline">
             GADGET
           </h2>
           <ProductSlider
             products={safeProducts.filter(p => p.category === "gadget").slice(0, 6)}
             onProductClick={setModalProduct}
-            onAddToCart={handleAddToCart}
           />
         </section>
 
         {/* Sezione Wear */}
-        <section id="wear" className="mb-16">
+        <section id="wear" className="mb-16 scroll-mt-28">
           <h2 className="text-3xl font-bold mb-4 text-[var(--primary)] animate-neon-glow-blink text-center uppercase">
             WEAR
           </h2>
           <ProductSlider
             products={safeProducts.filter(p => p.category === "wear").slice(0, 6)}
             onProductClick={setModalProduct}
-            onAddToCart={handleAddToCart}
           />
         </section>
 
         {/* Sezione Art */}
-        <section id="art" className="mb-16">
+        <section id="art" className="mb-16 scroll-mt-28">
           <h2 className="text-3xl font-bold mb-4 text-[var(--primary)] animate-neon-glow-blink text-center uppercase">
             ART
           </h2>
           <ProductSlider
             products={safeProducts.filter(p => p.category === "art").slice(0, 6)}
             onProductClick={setModalProduct}
-            onAddToCart={handleAddToCart}
           />
         </section>
 
@@ -127,13 +117,7 @@ export default function Home() {
                 <p className="text-gray-400">
                   Prezzo: {product.priceEUR} €
                 </p>
-                <div className="flex justify-between mt-4">
-                  <button
-                    onClick={() => handleAddToCart(product)}
-                    className="bg-bitcoin text-white px-4 py-2 rounded-md font-semibold shadow-md hover:bg-bitcoin-dark transition"
-                  >
-                    Aggiungi al carrello
-                  </button>
+                <div className="flex justify-end mt-4">
                   <button
                     onClick={() => setModalProduct(product)}
                     className="text-bitcoin font-semibold"
@@ -151,7 +135,6 @@ export default function Home() {
         product={modalProduct}
         onClose={() => setModalProduct(null)}
         btcEur={btcEur}
-        onAddToCart={handleAddToCart}
       />
     </>
   );

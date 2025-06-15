@@ -134,13 +134,18 @@ export default function ProductModal({
                 >+</button>
               </div>
             )}
-            {/* Bottone aggiungi al carrello */}
+            
+            {/* Contatto venditore */}
             <button
-              className="w-full bg-[var(--primary)] text-[var(--primary-foreground)] font-bold py-3 rounded-[var(--radius)] hover:bg-white hover:text-[var(--primary)] transition-all duration-200 flex flex-col items-center justify-center text-base md:text-lg gap-1"
-              onClick={handleAdd}
-              disabled={product.stock === 0}
+              onClick={() =>
+                window.open(
+                  "https://t.me/bitgadgetstore",
+                  "_blank"
+                )
+              }
+              className="mt-4 w-full bg-transparent border border-[var(--primary)] text-[var(--primary)] font-bold py-3 rounded-[var(--radius)] hover:bg-[var(--primary)] hover:text-[var(--card)] transition-all duration-200 flex items-center justify-center text-base md:text-lg gap-2"
             >
-              <ShoppingCart className="mr-2 h-5 w-5 inline" /> ADD TO CART
+              <span>CONTACT</span>
             </button>
           </div>
         </div>

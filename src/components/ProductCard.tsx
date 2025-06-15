@@ -54,14 +54,16 @@ function ProductCardComponent({ product, btcEur, onView }: ProductCardProps) {
           <Eye className="mr-2 h-4 w-4" /> Vedi
         </Button>
         <Button
-          onClick={() => {
-            addToCart(product);
-            toast.success("Prodotto aggiunto al carrello!");
-          }}
-          disabled={product.stock === 0}
+          variant="default"
           className="w-full"
+          onClick={() =>
+            window.open(
+              "https://t.me/bitgadgetstore",
+              "_blank"
+            )
+          }
         >
-          <ShoppingCart className="mr-2 h-4 w-4" /> ADD TO CART
+          CONTACT
         </Button>
       </CardFooter>
     </Card>
