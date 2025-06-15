@@ -64,8 +64,7 @@ export default function ProductSlider({
                 product={product}
                 btcEur={btcEur}
                 onView={onProductClick}
-                onAdd={onAddToCart}
-              />
+                
             </div>
           ))}
         </div>
