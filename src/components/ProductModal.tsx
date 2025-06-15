@@ -7,6 +7,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import Image from "next/image";
+import ReactMarkdown from "react-markdown";
 
 interface ProductModalProps {
   product: Product | null;
@@ -51,7 +52,7 @@ export default function ProductModal({
         {/* Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
           {/* Immagine */}
-          <div className="flex items-center justify-center bg-[var(--background)] p-4 md:p-8">
+          <div className="flex items-center justify-center bg-transparent p-4 md:p-8">
             <div className="w-full flex flex-col items-center justify-center px-2">
               <Swiper
                 spaceBetween={10}
@@ -63,9 +64,7 @@ export default function ProductModal({
                   width: "100%",
                   maxWidth: 400,
                   height: "auto",
-                  margin: "0 auto",
-                  borderRadius: "1rem",
-                  background: "white"
+                  margin: "0 auto"
                 }}
               >
                 {product.images.map((src, idx) => (
@@ -87,7 +86,21 @@ export default function ProductModal({
           </div>
           {/* Dettagli */}
           <div className="flex flex-col px-4 py-6 md:px-8 md:py-12">
-            <p className="mb-6 text-[var(--foreground)] text-base leading-relaxed">{product.description}</p>
+            <ReactMarkdown
+              components={{
+                p: ({node, ...props}) => (
+                  <p className="mb-6 text-[var(--foreground)] text-base leading-relaxed break-words whitespace-pre-line text-justify" {...props} />
+                ),
+                ul: ({node, ...props}) => (
+                  <ul className="list-disc pl-6 mb-6" {...props} />
+                ),
+                li: ({node, ...props}) => (
+                  <li className="mb-1" {...props} />
+                ),
+              }}
+            >
+              {product.description}
+            </ReactMarkdown>
             <div className="flex flex-col items-center gap-3 mb-6">
               <span className="text-xl md:text-2xl font-bold text-[var(--primary)] flex items-center">
                 <Euro className="h-5 w-5 md:h-6 md:w-6 mr-2 text-[var(--primary)]" />
