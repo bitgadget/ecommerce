@@ -42,7 +42,7 @@ Turn your desk into a live crypto dashboard with **BIT TRACKER**, the Wi-Fi disp
 - Everything at a glance
 - Real-time updates
     `,
-    priceEUR: 69.99,
+    priceEUR: 80.00,
     images: ["/images/ticker1.webp", "/images/ticker2.webp", "/images/ticker3.webp"],
     category: "gadget"
   },
@@ -61,7 +61,7 @@ The BITRocket is a sleek, Bitcoin-themed rocket toy designed for traders and cry
 
 BITGADGET
     `,
-    priceEUR: 39.99,
+    priceEUR: 30.00,
     images: ["/images/bitrocketred.webp", "/images/bitrocketorange.webp"],
     category: "gadget"
   },
@@ -80,7 +80,7 @@ TO THE MOON SIGN is a bold, high-quality piece made from durable PLA. Designed f
 
 BITGADGET
     `,
-    priceEUR: 29.99,
+    priceEUR: 25.00,
     images: ["/images/tothemoon.webp"],
     category: "gadget"
   },
@@ -101,7 +101,7 @@ The EmergencyPILL ₿ is a limited-edition Bitcoin wall frame featuring mini-pil
 
 BITGADGET
     `,
-    priceEUR: 24.99,
+    priceEUR: 50.00,
     images: ["/images/emergency1.webp", "/images/emergency2.webp"],
     category: "gadget"
   },

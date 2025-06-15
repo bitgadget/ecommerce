@@ -46,7 +46,12 @@ export default function Home() {
       <main className="container mx-auto px-4 py-12">
         {/* Scritta centrale */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-white">DISCOVER OUR COLLECTION</h2>
+          <h2 className="text-4xl font-bold text-white mb-2">
+            DISCOVER OUR COLLECTION
+          </h2>
+          <p className="text-lg text-white uppercase">
+            All products are available, but sales are by request only.
+          </p>
         </div>
 
         {/* Sezione Gadget */}
@@ -82,10 +87,10 @@ export default function Home() {
           />
         </section>
 
-        {/* Lista di tutti i prodotti */}
+        {/* List of all products */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-4 text-white text-center">
-            TUTTI I PRODOTTI
+            ALL PRODUCTS
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {safeProducts.map((product: any) => (
@@ -97,27 +102,112 @@ export default function Home() {
                   {product.name}
                 </h3>
                 <p className="text-gray-400">
-                  Prezzo: {product.priceEUR} €
+                  Price: {product.priceEUR} €
                 </p>
                 <div className="flex justify-end mt-4">
                   <button
                     onClick={() => setModalProduct(product)}
                     className="text-bitcoin font-semibold"
                   >
-                    Visualizza
+                    View
                   </button>
                 </div>
               </div>
             ))}
           </div>
         </section>
+
+        {/* Bitcoin Section */}
+        <section className="flex flex-col items-center justify-center my-6">
+          <div className="bg-gradient-to-r from-orange-500 to-yellow-400 rounded-full w-20 h-20 flex items-center justify-center mb-4 animate-bounce shadow-lg">
+            {/* Bitcoin SVG icon */}
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+              <circle cx="20" cy="20" r="20" fill="white" />
+              <text x="50%" y="55%" textAnchor="middle" fill="#f7931a" fontSize="22" fontWeight="bold" fontFamily="Arial" dy=".3em">₿</text>
+            </svg>
+          </div>
+          <h3 className="text-2xl font-bold text-white mb-2 text-center">
+            Bitcoin is not just a currency, it’s a revolution.
+          </h3>
+          <p className="text-lg text-gray-200 text-center max-w-xl">
+            Join the orange future. Every product here is a statement of freedom and innovation.
+            <br />
+            <span className="block mt-4 font-extrabold text-2xl uppercase text-orange-400 neon-flash">
+              STACK SATS, STAY SOVEREIGN!
+            </span>
+          </p>
+        </section>
+
+        {/* Motivational Section */}
+        <section className="flex flex-col items-center justify-center pb-2">
+          {/* ...bitcoin content... */}
+        </section>
+
+        {/* Divider */}
+        <div className="w-full flex justify-center">
+          <div className="h-px w-32 bg-gradient-to-r from-orange-400 via-yellow-400 to-orange-400 opacity-60 rounded-full" />
+        </div>
+
+        {/* Contact Section */}
+        <section
+          id="contact"
+          className="flex flex-col items-center justify-center pt-2 pb-0 scroll-mt-[40px]"
+        >
+          <h3 className="text-2xl font-bold text-white mb-3 text-center">
+            Contact Us
+          </h3>
+          <p className="text-base text-gray-300 mb-4 text-center">
+            For requests, info, or custom orders, reach out on social or by Telegram.
+          </p>
+          <div className="flex space-x-6 mb-2">
+            <a
+              href="https://x.com/bitgadgetstore"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Twitter"
+              className="flex items-center justify-center w-12 h-12 rounded-full bg-neutral-800 hover:bg-orange-500 transition text-2xl text-white border-2 border-orange-500"
+            >
+              <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M22.162 5.656c-.793.352-1.646.59-2.542.698a4.48 4.48 0 0 0 1.962-2.475 8.94 8.94 0 0 1-2.828 1.08A4.466 4.466 0 0 0 11.07 9.03c0 .35.04.69.116 1.016-3.713-.186-7.008-1.964-9.207-4.667a4.48 4.48 0 0 0-.604 2.247c0 1.55.79 2.918 2.002 3.722a4.44 4.44 0 0 1-2.022-.56v.057a4.47 4.47 0 0 0 3.58 4.382c-.193.053-.397.082-.607.082-.148 0-.292-.014-.432-.04.293.915 1.144 1.58 2.152 1.597A8.96 8.96 0 0 1 2 19.54a12.66 12.66 0 0 0 6.84 2.006c8.206 0 12.7-6.797 12.7-12.692 0-.193-.004-.385-.013-.576a9.07 9.07 0 0 0 2.235-2.312z"/>
+              </svg>
+            </a>
+            <a
+              href="https://t.me/bitgadgetstore"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Telegram"
+              className="flex items-center justify-center w-12 h-12 rounded-full bg-neutral-800 hover:bg-orange-500 transition text-2xl text-white border-2 border-orange-500"
+            >
+              <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M21.954 4.569c-.197-.149-.453-.149-.65 0L2.05 12.924c-.197.149-.197.391 0 .54l2.197 1.664c.197.149.453.149.65 0l1.64-1.242 2.197 1.664c.197.149.453.149.65 0l1.64-1.242 2.197 1.664c.197.149.453.149.65 0l1.64-1.242 2.197 1.664c.197.149.453.149.65 0l2.197-1.664c.197-.149.197-.391 0-.54L21.954 4.569z"/>
+              </svg>
+            </a>
+          </div>
+          <span className="text-gray-400 text-sm">info@bitgadget.store</span>
+        </section>
       </main>
-      <Footer />
+      <Footer className="bg-neutral-900 text-neutral-200 pt-4 pb-4 mt-8 border-t border-neutral-800"/>
       <ProductModal
         product={modalProduct}
         onClose={() => setModalProduct(null)}
         btcEur={btcEur}
       />
+      <style>
+        {`
+        .neon-flash {
+          text-shadow:
+            0 0 8px #ff9900,
+            0 0 16px #ff9900,
+            0 0 24px #ff9900,
+            0 0 32px #ff9900;
+          animation: neon-flash 1s infinite alternate;
+        }
+        @keyframes neon-flash {
+          from { opacity: 1; text-shadow: 0 0 8px #ff9900, 0 0 16px #ff9900, 0 0 24px #ff9900, 0 0 32px #ff9900; }
+          to   { opacity: 0.6; text-shadow: 0 0 2px #ff9900, 0 0 4px #ff9900; }
+        }
+        `}
+      </style>
     </>
   );
 }

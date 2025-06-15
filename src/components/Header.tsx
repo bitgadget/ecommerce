@@ -23,7 +23,7 @@ export default function Header() {
       </Link>
       <div className="relative" ref={ref}>
         <button
-          className="flex flex-col justify-center items-center w-10 h-10 bg-orange-500 rounded hover:bg-orange-600 transition focus:outline-none"
+          className="flex flex-col justify-center items-center w-10 h-10 bg-orange-400 rounded hover:bg-orange-500 transition focus:outline-none"
           onClick={() => setOpen((v) => !v)}
           aria-label="Apri menu categorie"
         >
@@ -54,6 +54,13 @@ export default function Header() {
               onClick={() => setOpen(false)}
             >
               Art
+            </Link>
+            <Link
+              href="#contact"
+              className="block px-4 py-2 hover:bg-neutral-700 rounded transition"
+              onClick={() => setOpen(false)}
+            >
+              Contact
             </Link>
           </div>
         )}

@@ -47,10 +47,17 @@ export default function MobileMenu() {
             </a>
             <a
               href="#art"
-              className="px-8 py-4 text-lg text-white font-semibold hover:bg-[var(--primary)] hover:text-[var(--primary-foreground)] rounded-b-xl transition"
+              className="px-8 py-4 text-lg text-white font-semibold hover:bg-[var(--primary)] hover:text-[var(--primary-foreground)] transition"
               onClick={() => setOpen(false)}
             >
               ART
+            </a>
+            <a
+              href="#contact"
+              className="px-8 py-4 text-lg text-white font-semibold hover:bg-[var(--primary)] hover:text-[var(--primary-foreground)] rounded-b-xl transition"
+              onClick={() => setOpen(false)}
+            >
+              CONTACT
             </a>
           </nav>
         </div>
