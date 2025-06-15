@@ -95,7 +95,7 @@ export default function ProductSlider({
               data-card
               className="
                 flex-shrink-0
-                w-[350px]
+                w-[90vw] max-w-xs sm:w-[320px] md:w-[350px]
                 snap-start
               "
             >
