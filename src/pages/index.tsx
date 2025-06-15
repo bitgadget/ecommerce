@@ -186,7 +186,7 @@ export default function Home() {
           <span className="text-gray-400 text-sm">info@bitgadget.store</span>
         </section>
       </main>
-      <Footer className="bg-neutral-900 text-neutral-200 pt-4 pb-4 mt-8 border-t border-neutral-800"/>
+      <Footer />
       <ProductModal
         product={modalProduct}
         onClose={() => setModalProduct(null)}
