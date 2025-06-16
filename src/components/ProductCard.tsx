@@ -45,7 +45,7 @@ function ProductCardComponent({ product, btcEur, onView }: ProductCardProps) {
       </CardContent>
       <CardFooter className="p-4 pt-0 grid grid-cols-2 gap-2">
         <Button variant="outline" onClick={() => onView(product)} className="w-full">
-          <Eye className="mr-2 h-4 w-4" /> Vedi
+          <Eye className="mr-2 h-4 w-4" /> LOOK
         </Button>
         <Button
           variant="default"
