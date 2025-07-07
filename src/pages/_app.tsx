@@ -16,6 +16,19 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Toaster position="top-right" />
         <Component {...pageProps} />
       </main>
+      <style jsx global>{`
+        .react-medium-image-zoom__close {
+          top: 8px !important;
+          right: 8px !important;
+          color: #fff !important;
+          background: #ff9900 !important;
+          border: 3px solid #fff !important;
+          width: 56px !important;
+          height: 56px !important;
+          font-size: 2.5rem !important;
+          box-shadow: 0 0 16px #ff9900;
+        }
+      `}</style>
     </CartProvider>
   );
 }

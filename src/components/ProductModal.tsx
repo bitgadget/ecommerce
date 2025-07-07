@@ -8,6 +8,8 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import Image from "next/image";
 import ReactMarkdown from "react-markdown";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
 
 interface ProductModalProps {
   product: Product | null;
@@ -20,6 +22,8 @@ export default function ProductModal({
   onClose,
   btcEur,
 }: ProductModalProps) {
+  const [zoomedImg, setZoomedImg] = React.useState<string | null>(null);
+
   React.useEffect(() => {
     if (product) {
       document.body.style.overflow = "hidden";
@@ -50,9 +54,9 @@ export default function ProductModal({
           </button>
         </div>
         {/* Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-8">
           {/* Immagine */}
-          <div className="flex items-center justify-center bg-transparent p-4 md:p-8">
+          <div className="flex items-center justify-center bg-transparent p-4 md:p-12 border-b md:border-b-0 md:border-r border-[var(--border)]">
             <div className="w-full flex flex-col items-center justify-center px-2">
               <Swiper
                 spaceBetween={10}
@@ -73,10 +77,12 @@ export default function ProductModal({
                       <Image
                         src={src}
                         alt={product.name}
-                        fill
-                        style={{ objectFit: "contain" }}
+                        width={400}
+                        height={400}
+                        style={{ objectFit: "contain", width: "100%", height: "auto", cursor: "zoom-in" }}
                         sizes="(max-width: 600px) 90vw, 400px"
                         priority={idx === 0}
+                        onClick={() => setZoomedImg(src)}
                       />
                     </div>
                   </SwiperSlide>
@@ -85,7 +91,7 @@ export default function ProductModal({
             </div>
           </div>
           {/* Dettagli */}
-          <div className="flex flex-col px-4 py-6 md:px-8 md:py-12">
+          <div className="flex flex-col justify-center px-4 py-6 md:px-12 md:py-8">
             <ReactMarkdown
               components={{
                 p: ({node, ...props}) => (
@@ -125,6 +131,26 @@ export default function ProductModal({
             </button>
           </div>
         </div>
+        {zoomedImg && (
+          <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90">
+            <button
+              className="absolute top-6 right-6 text-white bg-[var(--primary)] rounded-full w-12 h-12 flex items-center justify-center text-3xl font-bold shadow-lg hover:bg-white hover:text-[var(--primary)] transition"
+              onClick={() => setZoomedImg(null)}
+              aria-label="Close zoom"
+            >
+              &times;
+            </button>
+            <Image
+              src={zoomedImg}
+              alt={product.name}
+              width={800}
+              height={800}
+              style={{ objectFit: "contain", maxWidth: "90vw", maxHeight: "90vh" }}
+              sizes="90vw"
+              priority
+            />
+          </div>
+        )}
       </div>
     </div>
   );

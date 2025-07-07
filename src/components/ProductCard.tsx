@@ -67,8 +67,4 @@ function ProductCardComponent({ product, btcEur, onView }: ProductCardProps) {
 const ProductCard = React.memo(ProductCardComponent);
 export default ProductCard;
 
-// Grid container for ProductCard components
-<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 px-2">
-  {/* ProductCard */}
-</div>
 

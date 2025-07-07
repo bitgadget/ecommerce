@@ -138,10 +138,6 @@ export default function Home() {
           </p>
         </section>
 
-        {/* Motivational Section */}
-        <section className="flex flex-col items-center justify-center pb-2">
-          {/* ...bitcoin content... */}
-        </section>
 
         {/* Divider */}
         <div className="w-full flex justify-center">

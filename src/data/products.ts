@@ -127,9 +127,9 @@ BITGADGET
   },
   {
     id: "w2",
-    name: "₿ BLACK Bitcoin T-Shirt",
+    name: "₿ BLACK Bitcoin Hoodie",
     description: `
-₿ BITCOIN T-Shirt. The minimalistic Bitcoin wear, now on a hoodie! Ideal for crypto traders, Bitcoin maximalists, and blockchain enthusiasts.
+₿ BITCOIN Hoodie. The minimalistic Bitcoin wear, now on a hoodie! Ideal for crypto traders, Bitcoin maximalists, and blockchain enthusiasts.
 
 **Why buy the ₿ BLACK Bitcoin T-Shirt?**
 ✔ Premium cotton blend for maximum comfort  

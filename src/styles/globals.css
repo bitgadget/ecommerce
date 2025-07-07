@@ -49,3 +49,20 @@ h1, h2, h3, .font-headline {
   justify-content: center;
   align-items: center;
 }
+
+/* Personalizza la X di chiusura dello zoom */
+.react-medium-image-zoom__close {
+  top: 8px !important;
+  right: 8px !important;
+  color: #fff !important;
+  background: #ff9900 !important;
+  border: 3px solid #fff !important;
+  width: 56px !important;
+  height: 56px !important;
+  font-size: 2.5rem !important;
+  box-shadow: 0 0 16px #ff9900;
+}
+.react-medium-image-zoom__close:hover {
+  background: #ff9900 !important;
+  color: #fff !important;
+}
